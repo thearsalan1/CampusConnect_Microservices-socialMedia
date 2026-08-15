@@ -3,7 +3,7 @@ import SpotLight from "./utils/SpotLight";
 
 const App = () => {
   return (
-    <div className="bg-background h-screen w-screen">
+    <div className="bg-background w-screen">
       <SpotLight>
         <LandingPage></LandingPage>
       </SpotLight>

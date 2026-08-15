@@ -3,7 +3,7 @@ import { MoveDown, ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-screen flex items-center justify-center">
+    <section className="relative w-full h-[90vh] flex items-center justify-center">
       <div
         className="
     absolute
