@@ -3,6 +3,9 @@ import HeroSection from "../components/LandingPage/HeroSection";
 import logoOnly from "../assets/logo_only.png";
 import Navbar from "../components/LandingPage/Navbar";
 import Feature from "../components/LandingPage/Feature";
+import HowItWorks from "../components/LandingPage/HowItWorks";
+import About from "../components/LandingPage/About";
+import FAQ from "../components/LandingPage/FAQ";
 
 const LandingPage = () => {
   return (
@@ -19,6 +22,9 @@ const LandingPage = () => {
       <Navbar></Navbar>
       <HeroSection />
       <Feature />
+      <HowItWorks></HowItWorks>
+      <About></About>
+      <FAQ></FAQ>
     </div>
   );
 };

@@ -14,7 +14,7 @@ const Features = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0px", "-1000px"]);
 
   // Heading
-  const headingY = useTransform(scrollYProgress, [0, 0.15], [30, 0]);
+  const headingY = useTransform(scrollYProgress, [0,1],[0,1]);
 
   const headingOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
 
