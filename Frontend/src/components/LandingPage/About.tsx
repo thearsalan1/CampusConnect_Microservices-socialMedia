@@ -8,7 +8,7 @@ const About = () => {
   const tabs = ["Mission", "Solution"];
 
   return (
-    <div className="w-full flex gap-5">
+    <div className="w-full flex gap-5 mb-10">
       {/* Left panel */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}

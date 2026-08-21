@@ -6,6 +6,8 @@ import Feature from "../components/LandingPage/Feature";
 import HowItWorks from "../components/LandingPage/HowItWorks";
 import About from "../components/LandingPage/About";
 import FAQ from "../components/LandingPage/FAQ";
+import GetStarted from "../components/LandingPage/GetStarted";
+import Footer from "../components/LandingPage/Footer";
 
 const LandingPage = () => {
   return (
@@ -25,6 +27,8 @@ const LandingPage = () => {
       <HowItWorks></HowItWorks>
       <About></About>
       <FAQ></FAQ>
+      <GetStarted></GetStarted>
+      <Footer></Footer>
     </div>
   );
 };

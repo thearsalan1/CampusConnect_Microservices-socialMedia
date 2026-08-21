@@ -3,44 +3,48 @@ import { MoveDown, ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-[90vh] flex items-center justify-center">
+    <section className="relative w-full min-h-screen pt-24 flex items-center justify-center overflow-hidden">
+      {/* Background Glow */}
       <div
         className="
-    absolute
-    top-[15%]
-    left-[10%]
-    w-40 h-40
-    rounded-full
-    bg-primary/25
-    blur-3xl
-  "
+          absolute
+          top-[15%]
+          left-[10%]
+          w-40 h-40
+          rounded-full
+          bg-primary/25
+          blur-3xl
+        "
       />
 
       <div
         className="
-    absolute
-    top-[25%]
-    right-[10%]
-    w-52 h-52
-    rounded-full
-    bg-accent/20
-    blur-3xl
-  "
+          absolute
+          top-[25%]
+          right-[10%]
+          w-52 h-52
+          rounded-full
+          bg-accent/20
+          blur-3xl
+        "
       />
 
       <div
         className="
-    absolute
-    bottom-[5%]
-    left-1/2
-    -translate-x-1/2
-    w-60 h-32
-    rounded-full
-    bg-primary/20
-    blur-3xl
-  "
+          absolute
+          bottom-[5%]
+          left-1/2
+          -translate-x-1/2
+          w-60 h-32
+          rounded-full
+          bg-primary/20
+          blur-3xl
+        "
       />
+
+      {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center">
+
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -49,7 +53,14 @@ const HeroSection = () => {
             duration: 0.8,
             ease: "easeOut",
           }}
-          className="text-body text-accent-hover text-sm tracking-[0.3em] uppercase mb-6"
+          className="
+            text-body
+            text-accent-hover
+            text-sm
+            tracking-[0.3em]
+            uppercase
+            mb-6
+          "
         >
           Your campus. Your community.
         </motion.p>
@@ -62,7 +73,7 @@ const HeroSection = () => {
             duration: 1,
             ease: "easeOut",
           }}
-          className="text-9xl text-heading text-accent uppercase"
+          className="text-9xl text-heading text-primary uppercase"
         >
           Campus Connect
         </motion.h1>
@@ -76,7 +87,13 @@ const HeroSection = () => {
             delay: 0.35,
             ease: "easeOut",
           }}
-          className="text-3xl text-body text-accent-hover text-center mt-10"
+          className="
+            text-3xl
+            text-body
+            text-accent-hover
+            text-center
+            mt-10
+          "
         >
           Built for students, powered by campus life.
         </motion.p>
@@ -89,8 +106,13 @@ const HeroSection = () => {
             duration: 0.8,
             delay: 0.65,
           }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{
+            scale: 1.05,
+            y: -2,
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
           className="
             text-body
             mt-10
@@ -107,7 +129,7 @@ const HeroSection = () => {
           <ArrowRight size={18} />
         </motion.button>
 
-        {/* Scroll indicator */}
+        {/* Scroll Indicator */}
         <motion.div
           animate={{
             y: [0, 10, 0],
@@ -122,6 +144,7 @@ const HeroSection = () => {
         >
           <MoveDown size={45} />
         </motion.div>
+
       </div>
     </section>
   );

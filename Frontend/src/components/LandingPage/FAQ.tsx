@@ -28,7 +28,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-20 overflow-hidden min-h-[600px]">
+    <section className="py-20 overflow-hidden min-h-[600px] mt-10">
       {/* Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}

@@ -1,4 +1,12 @@
-import { UserPlus, MailCheck, Rocket } from "lucide-react";
+// data/howApplicationWorks.ts
+import {
+  UserPlus,
+  MailCheck,
+  ShoppingBag,
+  Users,
+  MessageCircle,
+  Megaphone,
+} from "lucide-react";
 
 export const howItWorks = [
   {
@@ -17,9 +25,30 @@ export const howItWorks = [
   },
   {
     step: "03",
-    icon: Rocket,
-    title: "Start Connecting",
+    icon: ShoppingBag,
+    title: "Browse the Marketplace",
     description:
-      "You're in. Browse the marketplace, join the conversation, catch up on announcements — all with real, verified classmates.",
+      "Buy and sell books, cycles, electronics, and more — every listing is from a verified student at your own college.",
+  },
+  {
+    step: "04",
+    icon: Users,
+    title: "Join the Social Feed",
+    description:
+      "Post updates, like, and comment with classmates. Filter by branch to see what's happening in your own department.",
+  },
+  {
+    step: "05",
+    icon: MessageCircle,
+    title: "Chat With Classmates",
+    description:
+      "Search any verified student by College ID and send a message request, or start a chat instantly from a marketplace listing.",
+  },
+  {
+    step: "06",
+    icon: Megaphone,
+    title: "Stay Updated With Announcements",
+    description:
+      "College admins post official notices and events. Pinned announcements stay on top, and you can ask questions right in the comments.",
   },
 ];
