@@ -1,5 +1,5 @@
 import {  Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/auth/loginPage";
+import LoginPage from "./pages/auth/LoginPage";
 import LandingPage from "./pages/LandingPage";
 import SpotLight from "./utils/SpotLight";
 

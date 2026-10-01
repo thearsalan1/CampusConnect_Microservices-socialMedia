@@ -1,8 +1,18 @@
 import { ShieldLock } from "lucide-react";
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLogin } from "../../features/auth/useLogin";
 
 const LoginPage = () => {
+  const [CollegeId, setCollegeId] = useState("");
+  const [password, setPassword] = useState("");
+  const { mutate: login, isPending } = useLogin();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    login({ CollegeId, password });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center p-5">
       <div className="w-full  relative max-w-6xl bg-card border border-accent rounded-2xl shadow-2xl p-6 md:p-10 flex items-center justify-center">
@@ -42,6 +52,7 @@ const LoginPage = () => {
              bg-card placeholder:text-text-muted 
              focus:border-accent-hover px-3 py-2 text-primary transition-colors text-sm"
                 placeholder="Enter your CollegeId"
+                onChange={(e) => setCollegeId(e.target.value)}
               />
               <label className="text-heading text-text-secondary text-xs mb-2">
                 Password
@@ -52,6 +63,7 @@ const LoginPage = () => {
              bg-card placeholder:text-text-muted 
              focus:border-accent-hover px-3 py-2 text-primary transition-colors text-sm"
                 placeholder="Enter your Password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </form>
           </div>
@@ -75,8 +87,13 @@ const LoginPage = () => {
               </Link>
             </span>
           </div>
-          <button className="w-[98%] bg-primary py-2 rounded-4xl border border-accent-hover ml-4 mr-4 mt-3 hover:bg-primary-hover text-xl font-body font-semibold text-text-primary hover:cursor-pointer">
-            submit
+          <button
+            className="w-[98%] bg-primary py-2 rounded-4xl border border-accent-hover ml-4 mr-4 mt-3 hover:bg-primary-hover text-xl font-body font-semibold text-text-primary hover:cursor-pointer"
+            type="submit"
+            disabled={isPending}
+            onClick={handleSubmit}
+          >
+            {isPending ? "Logging in..." : "Submit"}
           </button>
         </div>
       </div>

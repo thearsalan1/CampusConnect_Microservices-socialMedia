@@ -102,3 +102,4 @@
 {"collegeName":"FIET","count":1,"level":"info","message":"Internal students fetch","timestamp":"2026-08-05T06:53:35.538Z"}
 {"collegeId":"BTECHCS230098","ip":"::1","level":"info","message":"Login successful","timestamp":"2026-08-05T07:05:11.979Z","userId":"425326c7-3e42-4fdf-b0d7-c1b69dde283b"}
 {"collegeId":"BTECHCS230098","ip":"::1","level":"info","message":"Login successful","timestamp":"2026-08-05T07:06:17.580Z","userId":"425326c7-3e42-4fdf-b0d7-c1b69dde283b"}
+{"fileName":"test-data.csv","imported":0,"level":"info","message":"Roster upload completed","skipped":6,"timestamp":"2026-10-01T14:51:26.392Z","totalRows":6}
