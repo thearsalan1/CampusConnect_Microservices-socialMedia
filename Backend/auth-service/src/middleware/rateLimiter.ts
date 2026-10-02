@@ -36,7 +36,7 @@ export const createRateLimiter = ({
       }
       next();
     } catch (error) {
-      next(error);
+      next();
     }
   };
 };

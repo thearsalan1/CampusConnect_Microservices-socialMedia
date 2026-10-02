@@ -10,7 +10,7 @@ declare global {
         branch: string;
         collegeName: string;
         role: string;
-        name: string
+        name: string;
       };
     }
   }
@@ -28,6 +28,8 @@ export function authMiddleware(
   try {
     const decoded = verifyToken(token);
     req.user = decoded;
+    console.log(req.user);
+
     next();
   } catch (error) {
     return res

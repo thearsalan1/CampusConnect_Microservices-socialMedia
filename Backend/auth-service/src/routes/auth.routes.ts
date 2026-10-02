@@ -34,7 +34,7 @@ router.post(
 );
 router.post(
   "/login",
-  createRateLimiter({ windowInSeconds: 15 * 60, maxRequests: 10 }),
+  // createRateLimiter({ windowInSeconds: 15 * 60, maxRequests: 10 }),
   validate(loginSchema),
   login,
 );

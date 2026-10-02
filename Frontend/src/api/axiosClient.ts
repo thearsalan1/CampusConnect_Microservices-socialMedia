@@ -1,3 +1,4 @@
+// src/api/axiosClient.ts
 import axios from "axios";
 
 export const axiosClient = axios.create({
@@ -8,7 +9,7 @@ export const axiosClient = axios.create({
 let isRefreshing = false;
 let pendingQueue: Array<() => void> = [];
 
-axios.interceptors.response.use(
+axiosClient.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
@@ -21,7 +22,7 @@ axios.interceptors.response.use(
         try {
           await axiosClient.post("/auth/refresh-token");
           isRefreshing = false;
-          pendingQueue.forEach((cb) => cb);
+          pendingQueue.forEach((cb) => cb());
           pendingQueue = [];
           return axiosClient(originalRequest);
         } catch (refreshError) {
@@ -31,10 +32,12 @@ axios.interceptors.response.use(
           return Promise.reject(refreshError);
         }
       }
+
       return new Promise((resolve) => {
         pendingQueue.push(() => resolve(axiosClient(originalRequest)));
       });
     }
+
     return Promise.reject(error);
   },
 );

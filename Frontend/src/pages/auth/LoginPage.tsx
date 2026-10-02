@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { useLogin } from "../../features/auth/useLogin";
 
 const LoginPage = () => {
-  const [CollegeId, setCollegeId] = useState("");
+  const [collegeId, setCollegeId] = useState("");
   const [password, setPassword] = useState("");
   const { mutate: login, isPending } = useLogin();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    login({ CollegeId, password });
+    login({ collegeId, password });
   };
 
   return (
