@@ -7,4 +7,5 @@ export const AUTH_ENDPOINTS = {
   RESEND_OTP: "/auth/resend-otp",
   FORGOT_PASSWORD: "/auth/forgot-password",
   RESET_PASSWORD: "/auth/reset-password",
+  ME: "/auth/me",
 };

@@ -81,7 +81,7 @@ const LoginPage = () => {
               Not registered yet?{" "}
               <Link
                 className="text-primary hover:cursor-pointer"
-                to={"/register"}
+                to={"/sign-up"}
               >
                 Register
               </Link>
