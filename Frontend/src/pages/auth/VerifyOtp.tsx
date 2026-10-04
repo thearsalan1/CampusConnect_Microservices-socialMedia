@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Link, Navigate, useLocation } from "react-router-dom";
-import { useVerifyOtp } from "../../features/auth/useVerifyOtp";
-import { useResendOtp } from "../../features/auth/useResendOtp";
+import { useVerifyOtp } from "../../features/auth/hooks/useVerifyOtp";
+import { useResendOtp } from "../../features/auth/hooks/useResendOtp";
 
 const VerifyOtpPage = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);

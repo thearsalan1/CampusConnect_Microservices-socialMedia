@@ -1,7 +1,7 @@
 import { ShieldLock } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useLogin } from "../../features/auth/useLogin";
+import { useLogin } from "../../features/auth/hooks/useLogin";
 
 const LoginPage = () => {
   const [collegeId, setCollegeId] = useState("");
@@ -72,7 +72,7 @@ const LoginPage = () => {
               Forgot your password?{" "}
               <Link
                 className="text-primary hover:cursor-pointer"
-                to={"/register"}
+                to={"/forgot-password"}
               >
                 Forgot Pass
               </Link>

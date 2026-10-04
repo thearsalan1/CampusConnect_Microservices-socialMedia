@@ -1,5 +1,9 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useResendOtp } from "../../features/auth/hooks/useResendOtp";
+import { useForgotPassword } from "../../features/auth/hooks/useForgotPass";
+import { useResetPass } from "../../features/auth/hooks/useReset";
+import toast from "react-hot-toast";
 
 const ForgotPasswordPage = () => {
   const [step, setStep] = useState<"request" | "reset">("request");
@@ -9,6 +13,11 @@ const ForgotPasswordPage = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
+
+  const { mutate: resendOtp } = useResendOtp();
+  const { mutate: forgotPassword, isPending: isSendingCode } =
+    useForgotPassword();
+  const { mutate: resetPassword, isPending: isResetting } = useResetPass();
 
   const handleOtpChange = (value: string, index: number) => {
     if (!/^[0-9]?$/.test(value)) return;
@@ -29,16 +38,32 @@ const ForgotPasswordPage = () => {
 
   const handleRequestSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // connect forgot-password here → on success: setMaskedEmail(data.maskedEmail); setStep("reset");
+    forgotPassword(
+      { collegeId },
+      {
+        onSuccess: (data) => {
+          setMaskedEmail(data.maskedEmail);
+          setStep("reset");
+        },
+        onError: (error: any) => {
+          toast.error(error.response?.data?.message || "Something went wrong.");
+        },
+      },
+    );
   };
 
   const handleResetSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // connect reset-password here → { collegeId, otp: otp.join(""), newPassword }
+    if (newPassword !== confirmPassword) {
+      toast.error("Passwords do not match.");
+      return;
+    }
+    resetPassword({ collegeId, newPassword, otp: otp.join("") });
   };
 
-  const handleResend = () => {
-    // re-call forgot-password with same collegeId
+  const handleResend = (e: React.FormEvent) => {
+    e.preventDefault();
+    resendOtp({ collegeId });
   };
 
   return (
@@ -129,9 +154,10 @@ const ForgotPasswordPage = () => {
               />
               <button
                 type="submit"
-                className="w-[98%] bg-primary py-2 rounded-4xl border border-accent-hover ml-1 mr-1 mt-3 hover:bg-primary-hover text-xl font-body font-semibold text-text-primary hover:cursor-pointer"
+                disabled={isSendingCode}
+                className="w-[98%] bg-primary py-2 rounded-4xl border border-accent-hover ml-1 mr-1 mt-3 hover:bg-primary-hover text-xl font-body font-semibold text-text-primary hover:cursor-pointer disabled:opacity-50"
               >
-                Send Reset Code
+                {isSendingCode ? "Sending..." : "Send Reset Code"}
               </button>
             </form>
           ) : (
@@ -178,9 +204,10 @@ const ForgotPasswordPage = () => {
 
               <button
                 type="submit"
-                className="w-[98%] bg-primary py-2 rounded-4xl border border-accent-hover ml-1 mr-1 mt-3 hover:bg-primary-hover text-xl font-body font-semibold text-text-primary hover:cursor-pointer"
+                disabled={isResetting}
+                className="w-[98%] bg-primary py-2 rounded-4xl border border-accent-hover ml-1 mr-1 mt-3 hover:bg-primary-hover text-xl font-body font-semibold text-text-primary hover:cursor-pointer disabled:opacity-50"
               >
-                Reset Password
+                {isResetting ? "Updating..." : "Reset Password"}
               </button>
 
               <div className="w-full flex justify-center mt-2">

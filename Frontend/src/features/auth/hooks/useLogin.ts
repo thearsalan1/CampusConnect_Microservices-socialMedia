@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { loginApi } from "./auth.api";
-import { useAuthStore } from "./authStore";
+import { loginApi } from "../store/auth.api";
+import { useAuthStore } from "../store/authStore";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import type { AxiosError } from "axios";

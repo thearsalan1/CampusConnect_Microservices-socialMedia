@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import { me, verifyOtpApi } from "./auth.api";
+import { me, verifyOtpApi } from "../store/auth.api";
 import toast from "react-hot-toast";
-import { useAuthStore } from "./authStore";
+import { useAuthStore } from "../store/authStore";
 import { useNavigate } from "react-router-dom";
 import type { AxiosError } from "axios";
 

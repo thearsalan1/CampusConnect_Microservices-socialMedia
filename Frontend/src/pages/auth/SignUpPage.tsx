@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSignUp } from "../../features/auth/useSignUp";
+import { useSignUp } from "../../features/auth/hooks/useSignUp";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 

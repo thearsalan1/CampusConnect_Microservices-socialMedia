@@ -7,7 +7,7 @@ import VerifyOtp from "./pages/auth/VerifyOtp";
 
 // 👇 Toast import
 import { Toaster } from "react-hot-toast";
-import Forgot from "./pages/auth/forgot-password";
+import ForgotPasswordPage from "./pages/auth/Forgot-password";
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/sign-up" element={<SignUpPage />} />
           <Route path="/verify-otp" element={<VerifyOtp />} />
-          <Route path="/forgot-password" element={<Forgot />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         </Routes>
       </SpotLight>
 

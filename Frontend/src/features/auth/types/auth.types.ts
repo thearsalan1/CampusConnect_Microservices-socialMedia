@@ -50,5 +50,26 @@ export interface ResendOtpResponse {
 
 export interface MeResponse {
   success: boolean;
-  user: AuthUser; 
+  user: AuthUser;
+}
+
+export interface ResetPasswordPayload {
+  collegeId: string;
+  otp: string;
+  newPassword: string;
+}
+
+export interface ResetPasswordResponse {
+  success: boolean;
+  message: string;
+}
+
+export interface ForgotPasswordPayload {
+  collegeId: string;
+}
+
+export interface ForgotPasswordResponse {
+  success: boolean;
+  message: string;
+  maskedEmail: string;
 }

@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { resendOtp } from "./auth.api";
+import { resendOtp } from "../store/auth.api";
 import toast from "react-hot-toast";
 import type { AxiosError } from "axios";
 

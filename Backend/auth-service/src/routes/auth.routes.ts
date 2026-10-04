@@ -61,11 +61,11 @@ router.post(
 );
 router.post(
   "/forgot-password",
-  createRateLimiter({
-    windowInSeconds: 60 * 60,
-    maxRequests: 3,
-    prefix: "rl:forgot-password",
-  }),
+  // createRateLimiter({
+  //   windowInSeconds: 60 * 60,
+  //   maxRequests: 3,
+  //   prefix: "rl:forgot-password",
+  // }),
   forgetPassword,
 );
 router.post(
@@ -79,11 +79,11 @@ router.post(
 );
 router.post(
   "/resend-otp",
-  createRateLimiter({
-    windowInSeconds: 60 * 60,
-    maxRequests: 10,
-    prefix: "rl:resend-otp",
-  }),
+  // createRateLimiter({
+  //   windowInSeconds: 60 * 60,
+  //   maxRequests: 10,
+  //   prefix: "rl:resend-otp",
+  // }),
   resendOtp,
 );
 router.post(
