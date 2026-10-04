@@ -1,8 +1,10 @@
 import { ArrowRight, Cable } from "lucide-react";
 import { getStarted } from "../../data/GetStarted";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const GetStarted = () => {
+  const navigate = useNavigate();
   return (
     <section className="w-full flex items-center justify-center h-[60vh] mb-10">
       <motion.div
@@ -122,6 +124,7 @@ const GetStarted = () => {
                 transition-colors
                 text-sm
               "
+              onClick={() => navigate("/sign-up")}
             >
               {getStarted.primaryCta}
 
@@ -158,6 +161,7 @@ const GetStarted = () => {
                 transition-colors
                 text-sm
               "
+              onClick={() => navigate("/login")}
             >
               {getStarted.secondaryCta}
 

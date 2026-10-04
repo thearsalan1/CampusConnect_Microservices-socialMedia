@@ -28,7 +28,6 @@ axiosClient.interceptors.response.use(
         } catch (refreshError) {
           isRefreshing = false;
           pendingQueue = [];
-          window.location.href = "/login";
           return Promise.reject(refreshError);
         }
       }

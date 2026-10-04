@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
 import { MoveDown, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative w-full min-h-screen pt-24 flex items-center justify-center overflow-hidden">
       {/* Background Glow */}
@@ -44,7 +46,6 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center">
-
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -124,6 +125,7 @@ const HeroSection = () => {
             flex items-center gap-2
             transition-colors
           "
+          onClick={() => navigate("/sign-up")}
         >
           Join your campus
           <ArrowRight size={18} />
@@ -144,7 +146,6 @@ const HeroSection = () => {
         >
           <MoveDown size={45} />
         </motion.div>
-
       </div>
     </section>
   );
