@@ -1,6 +1,5 @@
-import React from "react";
 import logoOnly from "../assets/logo_only.png";
-import logo from "../assets/campus_connect_logo.svg";
+import Sidebar from "./dashboard/Sidebar";
 
 const DashboardLayout = () => {
   return (
@@ -10,9 +9,8 @@ const DashboardLayout = () => {
         className="fixed right-10 bottom-5 opacity-30 h-10 w-10"
       />
       {/* Sidebar */}
-      <aside className=" p-4 bg-card border border-r-accent ">
-        <img src={logo} alt="Campus Connect Logo" className="w-50  mx-auto opacity-60 mb-3" />
-        
+      <aside className=" border border-r-accent ">
+        <Sidebar />
       </aside>
 
       {/* Right side (Navbar + Content) */}
