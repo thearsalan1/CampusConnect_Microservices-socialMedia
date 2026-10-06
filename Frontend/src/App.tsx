@@ -24,7 +24,7 @@ const App = () => {
     <div className="bg-background w-screen">
       <SpotLight>
         <Routes>
-          <Route path="/landing-page" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
 
           <Route element={<PublicOnlyRoutes />}>
             <Route path="/login" element={<LoginPage />} />
@@ -34,7 +34,7 @@ const App = () => {
           </Route>
 
           <Route element={<ProtectedRoutes />}>
-            <Route path="/" element={<DashboardPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
           </Route>
         </Routes>
       </SpotLight>

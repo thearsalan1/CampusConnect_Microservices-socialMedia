@@ -1,7 +1,13 @@
-// src/api/axiosClient.ts
+// axiosClient.ts
 import axios from "axios";
 
 export const axiosClient = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  withCredentials: true,
+});
+
+// Alag, "dumb" instance — sirf refresh ke liye, koi interceptor nahi
+const refreshClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true,
 });
@@ -20,7 +26,7 @@ axiosClient.interceptors.response.use(
       if (!isRefreshing) {
         isRefreshing = true;
         try {
-          await axiosClient.post("/auth/refresh-token");
+          await refreshClient.post("/auth/refresh-token"); // 👈 alag instance
           isRefreshing = false;
           pendingQueue.forEach((cb) => cb());
           pendingQueue = [];
@@ -38,5 +44,5 @@ axiosClient.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  },
+  }
 );

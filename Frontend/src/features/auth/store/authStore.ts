@@ -13,7 +13,7 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: false,
-  isInitializing: true, // app load pe default true — abhi tak pata nahi
+  isInitializing: true,
   setUser: (user) =>
     set({ user, isAuthenticated: true, isInitializing: false }),
   clearUser: () =>
