@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/campus_connect_logo.svg";
+import { useLogOut } from "../../features/auth/hooks/useLogOut";
 
 export interface SidebarRoute {
   name: string;
@@ -13,16 +14,20 @@ export interface RoutesInterface {
 const Routes: RoutesInterface = {
   routes: [
     { name: "Dashboard", link: "/dashboard" },
-    { name: "Explore", link: "/jobs" },
-    { name: "MarketPlace", link: "/profile" },
-    { name: "Social", link: "/profile" },
-    { name: "Notifications", link: "/profile" },
-    { name: "Chat", link: "/profile" },
+    { name: "Explore", link: "/explore" },
+    { name: "MarketPlace", link: "/market-place" },
+    { name: "Notifications", link: "/notifications" },
+    { name: "Chat", link: "/chat" },
     { name: "Profile", link: "/profile" },
   ],
 };
 
 const Sidebar = () => {
+  const { mutate: logout, isPending } = useLogOut();
+
+  const handleLogOut = () => {
+    logout();
+  };
   return (
     <div className=" h-full p-2 bg-card flex flex-col justify-between ">
       <div>
@@ -50,8 +55,9 @@ const Sidebar = () => {
         <button
           className="w-[98%] bg-primary py-2 rounded-xl border border-accent-hover ml-1 mr-1 mt-3 hover:bg-primary-hover text-xl font-body font-semibold text-text-primary hover:cursor-pointer mb-5"
           type="submit"
+          onClick={handleLogOut}
         >
-          LogOut
+          {isPending ? "Logging Out..." : "LogOut"}
         </button>
       </div>
     </div>

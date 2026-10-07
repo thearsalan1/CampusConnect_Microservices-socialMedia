@@ -197,7 +197,7 @@ export const verifyOtp = async (req: Request, res: Response) => {
       branch: user.branch,
       role: user.role,
       collegeName: user.collegeName,
-      name: user.name
+      name: user.name,
     });
 
     const { token: refreshToken, jti } = generateRefreshToken({
@@ -206,7 +206,7 @@ export const verifyOtp = async (req: Request, res: Response) => {
       branch: user.branch,
       role: user.role,
       collegeName: user.collegeName,
-      name: user.name
+      name: user.name,
     });
 
     await redis.set(
@@ -307,7 +307,7 @@ export const login = async (req: Request, res: Response) => {
       branch: user.branch,
       role: user.role,
       collegeName: user.collegeName,
-      name: user.name
+      name: user.name,
     });
     const { token: refreshToken, jti } = generateRefreshToken({
       userId: user.id,
@@ -315,7 +315,7 @@ export const login = async (req: Request, res: Response) => {
       branch: user.branch,
       role: user.role,
       collegeName: user.collegeName,
-      name: user.name
+      name: user.name,
     });
 
     await redis.set(
@@ -399,7 +399,7 @@ export const refreshAccessToken = async (req: Request, res: Response) => {
       branch: user.branch,
       role: user.role,
       collegeName: user.collegeName,
-      name: user.name
+      name: user.name,
     });
 
     const { token: newRefreshToken, jti: newJti } = generateRefreshToken({
@@ -408,7 +408,7 @@ export const refreshAccessToken = async (req: Request, res: Response) => {
       branch: user.branch,
       role: user.role,
       collegeName: user.collegeName,
-      name: user.name
+      name: user.name,
     });
 
     await redis.set(

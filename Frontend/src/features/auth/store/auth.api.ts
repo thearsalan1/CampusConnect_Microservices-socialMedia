@@ -3,6 +3,7 @@ import {
   type ForgotPasswordResponse,
   type LoginPayLoad,
   type LoginResponse,
+  type LogoutResponse,
   type MeResponse,
   type ResendOtpPayload,
   type ResendOtpResponse,
@@ -66,5 +67,10 @@ export const forgotPasswordApi = async (
     AUTH_ENDPOINTS.FORGOT_PASSWORD,
     payload,
   );
+  return data;
+};
+
+export const logoutApi = async (): Promise<LogoutResponse> => {
+  const { data } = await axiosClient.post(AUTH_ENDPOINTS.LOGOUT);
   return data;
 };

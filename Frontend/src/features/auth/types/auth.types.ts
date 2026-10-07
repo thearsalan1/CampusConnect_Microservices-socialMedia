@@ -73,3 +73,8 @@ export interface ForgotPasswordResponse {
   message: string;
   maskedEmail: string;
 }
+
+export interface LogoutResponse{
+  success:boolean;
+  message:string;
+}

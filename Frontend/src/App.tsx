@@ -10,7 +10,9 @@ import { useAuthStore } from "./features/auth/store/authStore";
 import { useAuthInit } from "./features/auth/hooks/useInitialized";
 import PublicOnlyRoutes from "./components/auth/PublicOnlyRoutes";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
-import DashboardPage from "./pages/DashboardPage";
+import MarketPlace from "./pages/marketPlace/MarketPlace";
+import SocialPage from "./pages/social/SocialPage";
+import DashboardLayout from "./pages/DashboardPage";
 
 const App = () => {
   useAuthInit();
@@ -34,7 +36,11 @@ const App = () => {
           </Route>
 
           <Route element={<ProtectedRoutes />}>
-            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route element={<DashboardLayout />}>
+              <Route path="/dashboard" element={<SocialPage />} />
+              <Route path="/social" element={<SocialPage />} />
+              <Route path="/market-place" element={<MarketPlace />} />
+            </Route>
           </Route>
         </Routes>
       </SpotLight>
