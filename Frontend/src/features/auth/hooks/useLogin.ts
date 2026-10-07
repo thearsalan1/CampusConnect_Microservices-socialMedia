@@ -13,7 +13,7 @@ export const useLogin = () => {
     onSuccess: (data) => {
       setUser(data.user);
       toast.success(data.message || "Welcome back mate");
-      navigate("/");
+      navigate("/dashboard");
     },
     onError: (error: AxiosError<{ message?: string }>) => {
       const message =

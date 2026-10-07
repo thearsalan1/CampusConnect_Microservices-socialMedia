@@ -24,7 +24,7 @@ const Routes: RoutesInterface = {
 
 const Sidebar = () => {
   return (
-    <div className="w-full h-screen p-4 bg-card flex flex-col justify-between">
+    <div className=" h-full p-2 bg-card flex flex-col justify-between ">
       <div>
         <img
           src={logo}
@@ -48,7 +48,7 @@ const Sidebar = () => {
 
       <div>
         <button
-          className="w-[98%] bg-primary py-2 rounded-xl border border-accent-hover ml-1 mr-1 mt-3 hover:bg-primary-hover text-xl font-body font-semibold text-text-primary hover:cursor-pointer"
+          className="w-[98%] bg-primary py-2 rounded-xl border border-accent-hover ml-1 mr-1 mt-3 hover:bg-primary-hover text-xl font-body font-semibold text-text-primary hover:cursor-pointer mb-5"
           type="submit"
         >
           LogOut

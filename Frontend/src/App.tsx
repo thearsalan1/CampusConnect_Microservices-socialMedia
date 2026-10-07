@@ -21,7 +21,7 @@ const App = () => {
   }
 
   return (
-    <div className="bg-background w-screen">
+    <div className="bg-background w-screen min-h-0">
       <SpotLight>
         <Routes>
           <Route path="/" element={<LandingPage />} />
