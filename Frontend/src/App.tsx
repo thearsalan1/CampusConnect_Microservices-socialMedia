@@ -13,6 +13,8 @@ import ProtectedRoutes from "./components/auth/ProtectedRoutes";
 import MarketPlace from "./pages/marketPlace/MarketPlace";
 import SocialPage from "./pages/social/SocialPage";
 import DashboardLayout from "./pages/DashboardPage";
+import ItemDetails from "./pages/marketPlace/ItemDetails";
+import MyItems from "./pages/marketPlace/MyItems";
 
 const App = () => {
   useAuthInit();
@@ -40,6 +42,8 @@ const App = () => {
               <Route path="/dashboard" element={<SocialPage />} />
               <Route path="/social" element={<SocialPage />} />
               <Route path="/market-place" element={<MarketPlace />} />
+              <Route path="/market-place/:itemId" element={<ItemDetails />} />
+              <Route path="/market-place/my-items" element={<MyItems />} />
             </Route>
           </Route>
         </Routes>

@@ -40,7 +40,7 @@ router.get(
   createRateLimiter({
     windowInSeconds: 3600,
     maxRequests: 200,
-    prefix: "browse",
+    prefix: "browse:my",
   }),
   getMyItems,
 );
@@ -50,7 +50,7 @@ router.get(
   createRateLimiter({
     windowInSeconds: 3600,
     maxRequests: 200,
-    prefix: "browse",
+    prefix: "browse:item",
   }),
   getItemsDetail,
 );
@@ -60,7 +60,7 @@ router.get(
   createRateLimiter({
     windowInSeconds: 3600,
     maxRequests: 200,
-    prefix: "browse",
+    prefix: "browse:all",
   }),
   scopeToMiddleware,
   getAllItems,
@@ -86,7 +86,7 @@ router.delete(
   createRateLimiter({
     windowInSeconds: 3600,
     maxRequests: 20,
-    prefix: "edit-item",
+    prefix: "delete-item",
   }),
   checkOwnership(MarketPlaceItem, "itemId"),
   deleteItem,

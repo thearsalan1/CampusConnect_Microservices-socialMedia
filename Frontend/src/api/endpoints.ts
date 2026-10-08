@@ -11,12 +11,11 @@ export const AUTH_ENDPOINTS = {
 };
 
 export const LISTINGS_ENDPOINTS = {
-  GET_MARKETPLACE_POSTS: "/marketplace",
-  CREATE_MARKETPLACE_POST: "/marketplace",
-  SINGLE_ITEM: "/marketplace/:itemId",
-  MY_ITEMS: "/marketplace/my",
-  UPDATE_ITEM: "/marketplace/:itemId",
-  ITEM_STATUS: "/marketplace/:itemId/status",
-  DELETE_ITEM: "/marketplace/:itemId",
-  ITEM_DETAILS: "/marketplace/:itemId",
+  CREATE_MARKETPLACE_POST: "/listings/marketplace",   
+  MY_ITEMS: "/listings/marketplace/my",    //Done
+  ITEM_DETAILS: "/listings/marketplace/",   //Done
+  GET_MARKETPLACE_POSTS: "/listings/marketplace", //Done
+  UPDATE_ITEM: "/listings/marketplace/:itemId", 
+  DELETE_ITEM: "/listings/marketplace/",    //Done
+  ITEM_STATUS: "/listings/marketplace/:itemId/status",
 };

@@ -4,22 +4,21 @@ import {
   type ListingFilters,
 } from "../../features/listing/types/listing.types";
 import MarketItem from "./MarketItem";
+import { Link } from "react-router-dom";
 
 const MarketPlace = () => {
   const [filters, setFilters] = useState<ListingFilters>({
-    search: "",
-    minPrice: 10,
-    maxPrice: 1000,
-    category: "books",
-    sortBy: "oldest",
+    page: 1,
+    limit: 10,
   });
   const handleOnSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   };
 
   return (
-    <div className="w-full h-screen flex justify-center p-5 gap-3">
-      <div className="w-[25%] h-[90%] rounded-xl border border-accent bg-card p-4">
+    <div className="w-full h-screen p-5 grid grid-cols-[30%_50%_18%] gap-3">
+      {/* Left column → Filters */}
+      <div className="h-[90%] rounded-xl border border-accent bg-card p-4">
         <h1 className="text-logo text-primary text-2xl mb-3">Filter Items</h1>
         <div className="w-full h-[1px] bg-text-muted mb-5" />
 
@@ -31,8 +30,8 @@ const MarketPlace = () => {
           <input
             type="text"
             className="w-full bg-background mt-2 rounded-xl p-2 text-text-muted 
-                       focus:border-accent-hover border border-accent outline-none 
-                       placeholder:text-text-muted text-sm mb-3"
+                   focus:border-accent-hover border border-accent outline-none 
+                   placeholder:text-text-muted text-sm mb-3"
             placeholder="Enter Item name..."
             onChange={(e) => setFilters({ ...filters, search: e.target.value })}
             value={filters.search || ""}
@@ -93,7 +92,7 @@ const MarketPlace = () => {
           {/* ↕ Sort Dropdown */}
           <label className="text-sm text-body text-text-muted">Sort</label>
           <select
-            className="w-full mt-2 mb-3 border rounded-xl p-2 text-sm  border-accent hover:border-accent-hover text-body bg-background text-text-muted outline-none"
+            className="w-full mt-2 mb-3 border rounded-xl p-2 text-sm border-accent hover:border-accent-hover text-body bg-background text-text-muted outline-none"
             value={filters.sortBy || ""}
             onChange={(e) =>
               setFilters({
@@ -121,25 +120,26 @@ const MarketPlace = () => {
           <button
             type="submit"
             className="w-full p-2 bg-primary hover:bg-primary-hover cursor-pointer text-xl text-text-primary rounded-2xl text-body mt-3"
-            onClick={() =>
-              setFilters({
-                search: "",
-                minPrice: 10,
-                maxPrice: 1000,
-              })
-            }
+            onClick={(e: React.FormEvent) => e.preventDefault()}
           >
             Search
           </button>
         </form>
       </div>
 
-      {/* Right Side Layout */}
-      <div className="flex w-[75%] h-[90%]">
-        <div className="h-full w-[60%] rounded-l-xl border-l border-t border-b border-accent">
-          <MarketItem {...filters} />
+      {/* Middle column → Items */}
+      <div className="h-[90%] rounded-xl border border-accent overflow-auto no-scrollbar">
+        <MarketItem {...filters} />
+      </div>
+
+      {/* Right column → Extra content (placeholder) */}
+      <div className="h-fit rounded-xl border border-accent bg-card p-4">
+        <h2 className="text-heading text-text-primary text-xl mb-5">
+          Extra Panel
+        </h2>
+        <div className="w-full  h-full flex flex-col">
+          <Link to={"/market-place/my-items"} className="bg-primary w-full px-4 py-2 text-text-primary text-center text-body rounded hover:bg-primary-hover">My Items</Link>
         </div>
-        <div className="h-full w-[40%] rounded-r-xl border-t border-b border-r border-accent bg-card"></div>
       </div>
     </div>
   );

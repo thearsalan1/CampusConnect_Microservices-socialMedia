@@ -45,7 +45,7 @@ app.use(
     target: process.env.LISTING_SERVICE_URL,
     changeOrigin: true,
     cookieDomainRewrite: { "*": "" },
-    pathRewrite: (path) => `/listing${path}`,
+    pathRewrite: (path) => `/listings${path}`,
   }),
 );
 
