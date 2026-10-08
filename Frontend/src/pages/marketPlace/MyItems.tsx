@@ -2,7 +2,6 @@ import { useMyItems } from "../../features/listing/hoooks/useMyItems";
 import { Link } from "react-router-dom";
 import { useDeleteItem } from "../../features/listing/hoooks/useDeleteItem";
 import { useToggleItem } from "../../features/listing/hoooks/useToggleItem";
-import { useEffect } from "react";
 
 const MyItems = () => {
   const { data, isPending, error } = useMyItems();

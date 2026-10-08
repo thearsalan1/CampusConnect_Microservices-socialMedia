@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react";
 import { useCreateListing } from "../../features/listing/hoooks/useCreateListing";
 import { ItemCategory } from "../../features/listing/types/listing.types";
+import toast from "react-hot-toast";
 
-const UpdateItem = () => {
+const AddItem = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
@@ -35,6 +36,13 @@ const UpdateItem = () => {
   };
 
   const handleCreateItem = () => {
+    if (title.trim().length < 3)
+      return toast.error("Title kam se kam 3 characters ka ho.");
+    if (description.trim().length < 50 || description.trim().length > 300)
+      return toast.error("Description 50 se 300 characters ke beech ho.");
+    if (price < 10 || price > 10000)
+      return toast.error("Price 10 se 10000 ke beech ho.");
+    if (images.length === 0) return toast.error("Kam se kam ek image chahiye.");
     createItem({ title, price, description, images, category });
   };
 
@@ -155,4 +163,4 @@ const UpdateItem = () => {
   );
 };
 
-export default UpdateItem;
+export default AddItem;
