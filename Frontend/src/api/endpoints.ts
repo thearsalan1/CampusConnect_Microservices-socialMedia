@@ -17,5 +17,5 @@ export const LISTINGS_ENDPOINTS = {
   GET_MARKETPLACE_POSTS: "/listings/marketplace", //Done
   UPDATE_ITEM: "/listings/marketplace/:itemId", 
   DELETE_ITEM: "/listings/marketplace/",    //Done
-  ITEM_STATUS: "/listings/marketplace/:itemId/status",
+  ITEM_STATUS: "/listings/marketplace/",
 };

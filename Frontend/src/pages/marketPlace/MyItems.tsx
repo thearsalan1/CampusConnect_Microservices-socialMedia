@@ -2,15 +2,19 @@ import { useMyItems } from "../../features/listing/hoooks/useMyItems";
 import { Link } from "react-router-dom";
 import { useDeleteItem } from "../../features/listing/hoooks/useDeleteItem";
 import { useToggleItem } from "../../features/listing/hoooks/useToggleItem";
+import { useEffect } from "react";
 
 const MyItems = () => {
   const { data, isPending, error } = useMyItems();
   const { mutate: deleteItem } = useDeleteItem();
   const { mutate: toggleSatus } = useToggleItem();
-  
 
   const handleOnDelete = (itemId: string) => {
     deleteItem({ itemId });
+  };
+
+  const handleToggle = (itemId: string) => {
+    toggleSatus({ itemId });
   };
 
   if (isPending) {
@@ -28,9 +32,16 @@ const MyItems = () => {
             <img src={item.images[0].url} alt="" className="object-fill" />
           </div>
           <div className="p-3 flex flex-col gap-2">
-            <div>
+            <div className="flex justify-between items-center mb-2">
               <h1 className="text-heading">{item.title}</h1>
-              <button className={item.status==="AVAILABLE" ? "bg-primary": "bg-red-500"}>
+              <button
+                className={
+                  item.status === "AVAILABLE"
+                    ? "bg-primary px-2 py-1 rounded-2xl text-xs text-body text-text-primary cursor-pointer"
+                    : "bg-red-500 px-2 py-1 rounded-2xl text-xs text-body text-text-primary cursor-pointer"
+                }
+                onClick={() => handleToggle(item._id)}
+              >
                 ChangeStatus
               </button>
             </div>

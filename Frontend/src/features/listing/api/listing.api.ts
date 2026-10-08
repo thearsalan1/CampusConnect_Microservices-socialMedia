@@ -37,11 +37,14 @@ export const createListingApi = async (
   formData.append("price", String(payload.price));
   formData.append("category", payload.category);
   payload.images.forEach((file) => formData.append("images", file));
+  console.log(formData);
 
   const { data } = await axiosClient.post(
     LISTINGS_ENDPOINTS.CREATE_MARKETPLACE_POST,
     formData,
   );
+  console.log(data);
+
   return data;
 };
 
@@ -90,7 +93,7 @@ export const ToggleItemStatusApi = async ({
   itemId,
 }: ItemTogglePayload): Promise<ToggleItemStatusResponse> => {
   const { data } = await axiosClient.patch(
-    `${LISTINGS_ENDPOINTS.ITEM_STATUS}/${itemId}`,
+    `${LISTINGS_ENDPOINTS.ITEM_STATUS}/${itemId}/status`,
   );
   return data;
 };

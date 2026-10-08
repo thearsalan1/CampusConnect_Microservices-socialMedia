@@ -137,8 +137,19 @@ const MarketPlace = () => {
         <h2 className="text-heading text-text-primary text-xl mb-5">
           Extra Panel
         </h2>
-        <div className="w-full  h-full flex flex-col">
-          <Link to={"/market-place/my-items"} className="bg-primary w-full px-4 py-2 text-text-primary text-center text-body rounded hover:bg-primary-hover">My Items</Link>
+        <div className="w-full  h-full flex flex-col gap-3">
+          <Link
+            to={"/market-place/my-items"}
+            className="bg-primary w-full px-4 py-2 text-text-primary text-center text-body rounded hover:bg-primary-hover border-accent border"
+          >
+            My Items
+          </Link>
+          <Link
+            to={"/market-place/add"}
+            className="bg-primary w-full px-4 py-2 text-text-primary text-center text-body rounded hover:bg-primary-hover border-accent border"
+          >
+            Add Item
+          </Link>
         </div>
       </div>
     </div>

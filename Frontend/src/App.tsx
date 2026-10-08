@@ -15,6 +15,7 @@ import SocialPage from "./pages/social/SocialPage";
 import DashboardLayout from "./pages/DashboardPage";
 import ItemDetails from "./pages/marketPlace/ItemDetails";
 import MyItems from "./pages/marketPlace/MyItems";
+import UpdateItem from "./pages/marketPlace/UpdateItem";
 
 const App = () => {
   useAuthInit();
@@ -44,6 +45,7 @@ const App = () => {
               <Route path="/market-place" element={<MarketPlace />} />
               <Route path="/market-place/:itemId" element={<ItemDetails />} />
               <Route path="/market-place/my-items" element={<MyItems />} />
+              <Route path="/market-place/add" element={<UpdateItem />} />
             </Route>
           </Route>
         </Routes>
