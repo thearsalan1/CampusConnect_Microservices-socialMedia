@@ -15,7 +15,6 @@ const MarketPlace = () => {
   });
   const handleOnSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(filters);
   };
 
   return (
@@ -138,7 +137,7 @@ const MarketPlace = () => {
       {/* Right Side Layout */}
       <div className="flex w-[75%] h-[90%]">
         <div className="h-full w-[60%] rounded-l-xl border-l border-t border-b border-accent">
-          <MarketItem filters={filters} />
+          <MarketItem {...filters} />
         </div>
         <div className="h-full w-[40%] rounded-r-xl border-t border-b border-r border-accent bg-card"></div>
       </div>
